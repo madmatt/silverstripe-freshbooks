@@ -1,0 +1,28 @@
+{
+    "name":        "madmatt/silverstripe-freshbooks",
+    "description": "FreshBooks integration for SilverStripe framework",
+    "type":        "silverstripe-module",
+    "license":     "WTFPL",
+    "keywords": [
+        "silverstripe",
+        "freshbooks",
+        "api",
+        "invoices",
+        "invoicing"
+    ],
+    "require": {
+        "silverstripe/framework": "~3.1",
+        "guzzlehttp/guzzle":      "4.*"
+    },
+    "extra": {
+        "installer-name": "freshbooks"
+    },
+    "authors": [
+        {
+            "name":     "Matt Peel",
+            "email":    "matt@madman.net.nz",
+            "homepage": "http://github.com/madmatt/",
+            "role":     "Developer"
+        }
+    ]
+}
