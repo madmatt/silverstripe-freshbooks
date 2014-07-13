@@ -1,16 +1,14 @@
 language: php
 
-php:
-  - 5.4
-
-env:
-  - DB=MYSQL CORE_RELEASE=3.1
-
 matrix:
   include:
-    - php: 5.5
-      env: DB=PGSQL CORE_RELEASE=3.1
     - php: 5.4
+      env: DB=MYSQL CORE_RELEASE=3.1
+    - php: 5.5
+      env: DB=MYSQL CORE_RELEASE=3.1
+    - php: 5.4
+      env: DB=PGSQL CORE_RELEASE=3.1
+    - php: 5.5
       env: DB=PGSQL CORE_RELEASE=3.1
 
 before_script:
