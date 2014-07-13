@@ -1,4 +1,6 @@
-name: FreshBooksConfig
+---
+Name: FreshBooksGatewayConfig
 ---
 FreshBooksBaseGateway:
-  base_url: 'https://{subdomain}.freshbooks.com/api/2.1/xml-in/'
+  base_url: 'https://{subdomain}.freshbooks.com/api/2.1/xml-in'
+---
