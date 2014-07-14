@@ -14,8 +14,8 @@
         "silverstripe/framework": "~3.1",
         "guzzlehttp/guzzle":      "4.*"
     },
-	"require-dev": {
-		"fzaninotto/faker": "~1.4.0"
+	"suggest": {
+		"fzaninotto/faker": "Allows creation of fake FreshBooks data for use to populate development/staging envs."
 	},
     "extra": {
         "installer-name": "freshbooks"
