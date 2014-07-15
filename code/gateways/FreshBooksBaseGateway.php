@@ -32,6 +32,12 @@ abstract class FreshBooksBaseGateway extends Object {
 	protected $client;
 
 	/**
+	 * @var string The template to use for the request.
+	 * @see self::call() For usage of this variable
+	 */
+	private $template;
+
+	/**
 	 * @param string $gatewayName The base gateway name for this gateway.
 	 */
 	public function __construct($gatewayName) {
@@ -42,11 +48,18 @@ abstract class FreshBooksBaseGateway extends Object {
 	 * @param string     $method The method name to request/submit data to (e.g. if $this->gatewayName is 'invoice',
 	 *                           then $method could be 'get', 'list' etc.). Method may be dot-notated (e.g. lines.add).
 	 * @param array|null [$args] An array of arguments to be passed in for this request.
-	 * @return \GuzzleHttp\Message\ResponseInterface|null Either a Response-style object, or null if there was an error
+	 * @throws FreshBooksApiException If the API request wasn't successful
+	 * @throws InvalidArgumentException If given arguments are invalid, or the required template isn't set
+	 * @return SimpleXMLElement|null Either a SimpleXMLElement-style object (as interpreted by Guzzle), or null
 	 *
 	 */
 	public function call($method, $args = null) {
 		$this->setupClient();
+
+		// All methods calling this should set the template prior to calling
+		if(!$this->template) {
+			throw new InvalidArgumentException("Calling class must set the API template file.");
+		}
 
 		try {
 			$request = $this->client->createRequest('GET', null, array(
@@ -54,7 +67,7 @@ abstract class FreshBooksBaseGateway extends Object {
 					$this->config()->api_token,
 					'' // Password not required (see http://developers.freshbooks.com/authentication-2/#TokenBased)
 				),
-				'body' => SSViewer::execute_template('FreshBooksXMLRequest', new ArrayData(array(
+				'body' => SSViewer::execute_template($this->template, new ArrayData(array(
 						'GatewayName' => $this->gatewayName,
 						'MethodName'  => $method,
 						'Args' => (is_array($args) ? new ArrayData($args) : null)
@@ -106,5 +119,14 @@ abstract class FreshBooksBaseGateway extends Object {
 				)
 			)
 		));
+	}
+
+	/**
+	 * @param string $template The SS template to use for the next request to this gateway
+	 * @return self
+	 */
+	public function setTemplate($template) {
+		$this->template = $template;
+		return $this;
 	}
 }
