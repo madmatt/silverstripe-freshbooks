@@ -31,6 +31,11 @@ class FreshBooksClient extends FreshBooksViewableData {
 	);
 
 	/**
+	 * @var int The Client's ID in FreshBooks (not a SilverStripe database ID)
+	 */
+	private $clientID;
+
+	/**
 	 * @var string Client's first name
 	 */
 	private $firstName;
@@ -175,6 +180,465 @@ class FreshBooksClient extends FreshBooksViewableData {
 	 * @var string The VAT/Tax number for this client (while this is generally a number, it could be anything).
 	 */
 	private $vatNumber;
+
+	/**
+	 * @param int $clientID
+	 * @return self
+	 */
+	public function setClientID($clientID) {
+		$this->clientID = $clientID;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getClientID() {
+		return $this->clientID;
+	}
+
+	/**
+	 * @param string $currencyCode
+	 * @return self
+	 */
+	public function setCurrencyCode($currencyCode) {
+		$this->currencyCode = $currencyCode;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCurrencyCode() {
+		return $this->currencyCode;
+	}
+
+	/**
+	 * @param string $email
+	 * @return self
+	 */
+	public function setEmail($email) {
+		$this->email = $email;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEmail() {
+		return $this->email;
+	}
+
+	/**
+	 * @param string $fax
+	 * @return self
+	 */
+	public function setFax($fax) {
+		$this->fax = $fax;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFax() {
+		return $this->fax;
+	}
+
+	/**
+	 * @param string $firstName
+	 * @return self
+	 */
+	public function setFirstName($firstName) {
+		$this->firstName = $firstName;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFirstName() {
+		return $this->firstName;
+	}
+
+	/**
+	 * @param string $homePhone
+	 * @return self
+	 */
+	public function setHomePhone($homePhone) {
+		$this->homePhone = $homePhone;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHomePhone() {
+		return $this->homePhone;
+	}
+
+	/**
+	 * @param string $language
+	 * @return self
+	 */
+	public function setLanguage($language) {
+		$this->language = $language;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLanguage() {
+		return $this->language;
+	}
+
+	/**
+	 * @param string $lastName
+	 * @return self
+	 */
+	public function setLastName($lastName) {
+		$this->lastName = $lastName;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLastName() {
+		return $this->lastName;
+	}
+
+	/**
+	 * @param string $mobile
+	 * @return self
+	 */
+	public function setMobile($mobile) {
+		$this->mobile = $mobile;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getMobile() {
+		return $this->mobile;
+	}
+
+	/**
+	 * @param string $notes
+	 * @return self
+	 */
+	public function setNotes($notes) {
+		$this->notes = $notes;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getNotes() {
+		return $this->notes;
+	}
+
+	/**
+	 * @param string $organization
+	 * @return self
+	 */
+	public function setOrganization($organization) {
+		$this->organization = $organization;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getOrganization() {
+		return $this->organization;
+	}
+
+	/**
+	 * @param string $password
+	 * @return self
+	 */
+	public function setPassword($password) {
+		$this->password = $password;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPassword() {
+		return $this->password;
+	}
+
+	/**
+	 * @param string $primaryAddressCity
+	 * @return self
+	 */
+	public function setPrimaryAddressCity($primaryAddressCity) {
+		$this->primaryAddressCity = $primaryAddressCity;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressCity() {
+		return $this->primaryAddressCity;
+	}
+
+	/**
+	 * @param string $primaryAddressCode
+	 * @return self
+	 */
+	public function setPrimaryAddressCode($primaryAddressCode) {
+		$this->primaryAddressCode = $primaryAddressCode;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressCode() {
+		return $this->primaryAddressCode;
+	}
+
+	/**
+	 * @param string $primaryAddressCountry
+	 * @return self
+	 */
+	public function setPrimaryAddressCountry($primaryAddressCountry) {
+		$this->primaryAddressCountry = $primaryAddressCountry;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressCountry() {
+		return $this->primaryAddressCountry;
+	}
+
+	/**
+	 * @param string $primaryAddressState
+	 * @return self
+	 */
+	public function setPrimaryAddressState($primaryAddressState) {
+		$this->primaryAddressState = $primaryAddressState;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressState() {
+		return $this->primaryAddressState;
+	}
+
+	/**
+	 * @param string $primaryAddressStreet1
+	 * @return self
+	 */
+	public function setPrimaryAddressStreet1($primaryAddressStreet1) {
+		$this->primaryAddressStreet1 = $primaryAddressStreet1;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressStreet1() {
+		return $this->primaryAddressStreet1;
+	}
+
+	/**
+	 * @param string $primaryAddressStreet2
+	 * @return self
+	 */
+	public function setPrimaryAddressStreet2($primaryAddressStreet2) {
+		$this->primaryAddressStreet2 = $primaryAddressStreet2;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrimaryAddressStreet2() {
+		return $this->primaryAddressStreet2;
+	}
+
+	/**
+	 * @param string $secondaryAddressCity
+	 * @return self
+	 */
+	public function setSecondaryAddressCity($secondaryAddressCity) {
+		$this->secondaryAddressCity = $secondaryAddressCity;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressCity() {
+		return $this->secondaryAddressCity;
+	}
+
+	/**
+	 * @param string $secondaryAddressCode
+	 * @return self
+	 */
+	public function setSecondaryAddressCode($secondaryAddressCode) {
+		$this->secondaryAddressCode = $secondaryAddressCode;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressCode() {
+		return $this->secondaryAddressCode;
+	}
+
+	/**
+	 * @param string $secondaryAddressCountry
+	 * @return self
+	 */
+	public function setSecondaryAddressCountry($secondaryAddressCountry) {
+		$this->secondaryAddressCountry = $secondaryAddressCountry;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressCountry() {
+		return $this->secondaryAddressCountry;
+	}
+
+	/**
+	 * @param string $secondaryAddressState
+	 * @return self
+	 */
+	public function setSecondaryAddressState($secondaryAddressState) {
+		$this->secondaryAddressState = $secondaryAddressState;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressState() {
+		return $this->secondaryAddressState;
+	}
+
+	/**
+	 * @param string $secondaryAddressStreet1
+	 * @return self
+	 */
+	public function setSecondaryAddressStreet1($secondaryAddressStreet1) {
+		$this->secondaryAddressStreet1 = $secondaryAddressStreet1;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressStreet1() {
+		return $this->secondaryAddressStreet1;
+	}
+
+	/**
+	 * @param string $secondaryAddressStreet2
+	 * @return self
+	 */
+	public function setSecondaryAddressStreet2($secondaryAddressStreet2) {
+		$this->secondaryAddressStreet2 = $secondaryAddressStreet2;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSecondaryAddressStreet2() {
+		return $this->secondaryAddressStreet2;
+	}
+
+	/**
+	 * @param string $username
+	 * @return self
+	 */
+	public function setUsername($username) {
+		$this->username = $username;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUsername() {
+		return $this->username;
+	}
+
+	/**
+	 * @param string $vatName
+	 * @return self
+	 */
+	public function setVatName($vatName) {
+		$this->vatName = $vatName;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVatName() {
+		return $this->vatName;
+	}
+
+	/**
+	 * @param string $vatNumber
+	 * @return self
+	 */
+	public function setVatNumber($vatNumber) {
+		$this->vatNumber = $vatNumber;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVatNumber() {
+		return $this->vatNumber;
+	}
+
+	/**
+	 * @param string $workPhone
+	 * @return self
+	 */
+	public function setWorkPhone($workPhone) {
+		$this->workPhone = $workPhone;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getWorkPhone() {
+		return $this->workPhone;
+	}
+
+	/**
+	 * @return ArrayList<FreshBooksClient_Contact>
+	 */
+	public function getContacts() {
+		if(!isset($this->contacts)) {
+			$this->contacts = new ArrayList(); // Always ensure we return an ArrayList, even if there's no contacts yet
+		}
+
+		return $this->contacts;
+	}
 }
 
 class FreshBooksClient_Contact extends FreshBooksViewableData {
@@ -217,4 +681,100 @@ class FreshBooksClient_Contact extends FreshBooksViewableData {
 	 * @var string The secondary phone number for this client contact.
 	 */
 	private $phone2;
+
+	/**
+	 * @param string $email
+	 * @return self
+	 */
+	public function setEmail($email) {
+		$this->email = $email;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEmail() {
+		return $this->email;
+	}
+
+	/**
+	 * @param string $firstName
+	 * @return self
+	 */
+	public function setFirstName($firstName) {
+		$this->firstName = $firstName;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFirstName() {
+		return $this->firstName;
+	}
+
+	/**
+	 * @param string $lastName
+	 * @return self
+	 */
+	public function setLastName($lastName) {
+		$this->lastName = $lastName;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLastName() {
+		return $this->lastName;
+	}
+
+	/**
+	 * @param string $phone1
+	 * @return self
+	 */
+	public function setPhone1($phone1) {
+		$this->phone1 = $phone1;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPhone1() {
+		return $this->phone1;
+	}
+
+	/**
+	 * @param string $phone2
+	 * @return self
+	 */
+	public function setPhone2($phone2) {
+		$this->phone2 = $phone2;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPhone2() {
+		return $this->phone2;
+	}
+
+	/**
+	 * @param string $username
+	 * @return self
+	 */
+	public function setUsername($username) {
+		$this->username = $username;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUsername() {
+		return $this->username;
+	}
 }

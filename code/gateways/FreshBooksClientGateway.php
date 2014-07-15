@@ -4,7 +4,11 @@ class FreshBooksClientGateway extends FreshBooksBaseGateway {
 		parent::__construct('client');
 	}
 
-	public function createInvoice() {
-
+	public function createClient(FreshBooksClient $client) {
+		return $this
+			->setTemplate('FreshBooksClientGateway_createUpdateClient')
+			->call('create', array(
+				'Client' => $client
+			));
 	}
 }
