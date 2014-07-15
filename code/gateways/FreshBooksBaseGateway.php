@@ -69,10 +69,10 @@ abstract class FreshBooksBaseGateway extends Object {
 			return $response->xml();
 		} catch(\GuzzleHttp\Exception\RequestException $e) {
 			// TODO Log error, using $e->getRequest(), and if($e->hasResponse()), then also $e->getResponse()
-			var_dump($e);
+
 		} catch(\Exception $e) {
 			// TODO Log generic error
-			var_dump($e);
+
 		}
 
 		return null;
