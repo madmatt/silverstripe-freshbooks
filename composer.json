@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle":      "4.*"
     },
 	"suggest": {
-		"fzaninotto/faker": "Allows creation of fake FreshBooks data for use to populate development/staging envs."
+		"fzaninotto/faker": "Allows creation of fake FreshBooks data for use to populate development/staging envs.",
+		"phpunit/phpunit": "Allows you to run tests and generate coverage reports across the module."
 	},
     "extra": {
         "installer-name": "freshbooks"
